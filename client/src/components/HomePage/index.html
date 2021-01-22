@@ -310,9 +310,9 @@
 
             // Create post
             $('.btn-post').click(function () {
-                let name = $('#sel1').val();
+                let author = $('#sel1').val();
                 let content = $('#content-post').val()
-                if (!name) {
+                if (!author) {
                     $('.alert').remove()
                     $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Name Invalid</div>')
                     return
@@ -327,7 +327,7 @@
                 $.ajax({
                     url: "http://localhost:3000/post",
                     data: JSON.stringify({
-                        name,
+                        author,
                         content
                     }),
                     type: 'POST',
@@ -354,17 +354,11 @@
                                
                                 <div class="reaction-comment d-flex justify-content-between">
                                     <div class="reaction">
-                                        <img src="../../assets/images/linke.png" alt="icon">
-                                        <img src="../../assets/images/happy.png" alt="icon">
-                                        <img src="../../assets/images/heart.png" alt="icon">
-                                        <a href="#">
-                                            <span class="text-white"> 1,9k</span>
-                                        </a>
+                                        <span>${data.data.reaction.like}<img src="../../assets/images/linke.png" alt="icon"></span>
+                                        <span><img src="../../assets/images/happy.png" alt="icon"></span>
+                                        <span><img src="../../assets/images/heart.png" alt="icon"></span>
                                     </div>
-                                    <div class="comment d-flex">
-                                        <a class="text-white mr-2" href="#">26 bình luận</a>
-                                        <a class="text-white mr-2" href="#">86 lượt chia sẻ</a>
-                                    </div>
+                                    
                                 </div>
                             </div>`)
                         // });

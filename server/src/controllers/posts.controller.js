@@ -14,9 +14,9 @@ module.exports.createPost = async (req, res) => {
     // posts.push(newPost)
     // res.json({ status: 'success', newPost })
 
-    const { name, content } = req.body;
+    const { author, content } = req.body;
 
-    if (!name || !content) {
+    if (!author || !content) {
         return res.json({
             isSuccess: false,
             message: 'Missing required fields',

@@ -135,7 +135,9 @@
                     }).done(function (data) {
                         if (data.isSuccess) {
                             window.location.replace('http://127.0.0.1:5500/client/src/components/LoginPage/index.html')
-
+                        } else {
+                            $('.alert').remove()
+                            $('.container-fluid').prepend(`<div class="alert alert-warning" role="alert">${data.message}</div>`)
                         }
                     })
             })
